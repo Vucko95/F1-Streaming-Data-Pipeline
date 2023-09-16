@@ -15,8 +15,8 @@ kafka_server = 'localhost:29092'
 producer = initialize_kafka_producer(kafka_server)
 
 create_kafka_topic(topic_name)
-create_source(source_name)
-create_materialized_view(view_name,source_name)    
+# create_source(source_name)
+# create_materialized_view(view_name,source_name)    
 
 race_info_file = "race_data.json"
 
