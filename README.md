@@ -36,3 +36,60 @@ The Formula 1 Streaming Data Pipeline project leverages a combination of cutting
 - **Grafana Dashboard**: To visualize live Formula 1 data dynamically, Grafana is employed. It provides a versatile platform for creating customized dashboards, real-time charts, and data visualization tools. 
 
 - **Kafka UI**: Offers user-friendly graphical interfaces for efficient Kafka topic inspection, simplifying the tracking and comprehension of data flow within the streaming pipeline.
+
+
+
+### Setup
+
+Create RisingWave Docker Image with *postgresql-client*
+
+```
+docker build -t risingwave-local-psql .
+```
+
+
+```
+docker-compose up -d
+```
+
+The docker-compose up -d command initializes and starts all the specified services and containers within the project's Docker Compose configuration. It orchestrates the setup of various components, including ZooKeeper, Kafka, Kafka UI, RisingWave, and Grafana, by launching them in detached mode.
+
+
+Connect to a **KAFKA-UI** at *localhost:8080*, and set **Cluster name**, and **Kafka Service** + **Port** then Click Submit
+<div style="text-align:center;">
+  <img src="/images/kafka-ui.png" alt="Home Screen">
+</div>
+
+
+Setup Python Virtual Environment with dependencies inside **requirements.txt**
+
+This Python script sets up most of the manual steps for  **Kafka** and **RisingWave**. It creates **Kafka topics**, establishes a **data source**, and sets up **materialized views** for real-time analytics.
+The script also initializes tables for races and drivers, adding base data. Additionally, it generates materialized views for live positions and lap times in the first position. These views enable real-time monitoring and analysis of Formula 1 race data. 
+
+```
+cd /app
+python main.py
+
+```
+<div style="text-align:center;">
+  <img src="/images/pythonsc.png" alt="Home Screen">
+</div>
+<br>
+
+## Data Visualization
+Head to *localhost:3000*
+Navigation inside Grafana: Home -> Connections -> Add new connection -> PostgreSQL -> Add new data source
+
+Add the conection to RisingWave Database
+<div style="text-align:center;">
+  <img src="/images/grafana_setup.png" alt="Home Screen">
+</div>
+
+<br>
+Import the Dashboard F1 Race Dashboard.json
+
+<div style="text-align:center;">
+  <img src="/images/dashboard.png" alt="Home Screen">
+</div>
+
+The streaming data pipeline is now fully operational, python script efficiently streams data through the Kafka topic, while the RisingWave streaming database processes and merges data in real-time.
