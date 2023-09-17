@@ -1,6 +1,6 @@
 # Formula 1 Real-Time Data Streaming and Visualization
 <div style="text-align:center;">
-  <img src="/images/cover.png" alt="Home Screen"  style="border-radius: 20px; height: 80%;">
+  <img src="/images/cover2.png" alt="Home Screen"  style="border-radius: 20px; height: 80%;">
 </div>
 
 <br>
