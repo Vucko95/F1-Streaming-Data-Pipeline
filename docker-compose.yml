@@ -32,7 +32,8 @@ services:
       DYNAMIC_CONFIG_ENABLED: 'true'
 
   risingwave:
-    image: risingwavelabs/risingwave:latest
+    # image: risingwavelabs/risingwave:latest
+    image: risingwave-local-psql
     ports:
       - 4566:4566
       - 5691:5691
