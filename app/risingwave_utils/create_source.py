@@ -7,10 +7,10 @@ def create_source(source_name):
 
         sql_statement = f"""
         CREATE SOURCE IF NOT EXISTS {source_name} (
-            race_id int,
-            driver_id int,
+            raceId int,
+            driverId int,
             lap int,
-            pos int,
+            position int,
             ts string
         )
         WITH (
