@@ -1,6 +1,6 @@
 # Formula 1 Real-Time Data Streaming and Visualization
 <div style="text-align:center;">
-  <img src="/images/cover.png" alt="Home Screen">
+  <img src="/images/cover.png" alt="Home Screen"  style="border-radius: 20px; height: 80%;">
 </div>
 
 <br>
@@ -69,7 +69,6 @@ The script also initializes tables for races and drivers, adding base data. Addi
 ```
 cd /app
 python main.py
-
 ```
 <div style="text-align:center;">
   <img src="/images/pythonsc.png" alt="Home Screen">
@@ -78,6 +77,7 @@ python main.py
 
 ## Data Visualization
 Head to *localhost:3000*
+
 Navigation inside Grafana: Home -> Connections -> Add new connection -> PostgreSQL -> Add new data source
 
 Add the conection to RisingWave Database
