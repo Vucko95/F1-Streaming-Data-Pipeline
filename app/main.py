@@ -1,5 +1,6 @@
 import json, time,random , string
 from kafka import KafkaProducer
+import asyncio
 from kafka_utils.create_topics import create_kafka_topic
 from risingwave_utils.create_source import create_source
 from risingwave_utils.create_races_table import create_races_table
@@ -19,20 +20,28 @@ kafka_server = 'localhost:29092'
 
 
 producer = initialize_kafka_producer(kafka_server)
+async def main():
 
-# create_kafka_topic(topic_name)
-# time.sleep(7)
-# create_source(source_name)
-# create_materialized_view(view_name,source_name)    
-create_races_table()
+    create_kafka_topic(topic_name)
+    time.sleep(7)
+    create_source(source_name)
+    create_materialized_view(view_name,source_name)    
+    create_races_table()
 
-# race_info_file = "race_data.json"
-# race_info_data = read_json_file(race_info_file)
-# publish_messages_to_kafka(producer, topic_name, race_info_data)
+    race_info_file = "race_data.json"
+    race_info_data = read_json_file(race_info_file)
 
-# create_drivers_table_and_add_data()
-# create_mt_live_positions()
-# create_mt_times_in_position_one()
+    async def stream_data():
+        await publish_messages_to_kafka(producer, topic_name, race_info_data)   
+    # publish_messages_to_kafka(producer, topic_name, race_info_data)
+    data_streaming_task = asyncio.create_task(stream_data())
+
+    create_drivers_table_and_add_data()
+    create_mt_live_positions()
+    create_mt_times_in_position_one()
+
+    await data_streaming_task
 
 
-
+if __name__ == "__main__":
+    asyncio.run(main())
