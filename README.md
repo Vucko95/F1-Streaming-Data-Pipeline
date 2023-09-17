@@ -74,6 +74,25 @@ python main.py
   <img src="/images/pythonsc.png" alt="Home Screen">
 </div>
 <br>
+We can see that messages are arriving inside the Kafka-UI
+
+<div style="text-align:center;">
+  <img src="/images/kafka-topic.png" alt="Home Screen">
+</div>
+
+<br>
+We can manually check the data inside the database within the container
+<div style="text-align:center;">
+  <img src="/images/docker_ps.png" alt="Home Screen">
+</div>
+<br>
+```
+docker exec -it *CONTAINER ID* psql -h localhost -p 4566 -d dev -U root
+```
+<div style="text-align:center;">
+  <img src="/images/table.png" alt="Home Screen">
+</div>
+
 
 ## Data Visualization
 Head to *localhost:3000*
@@ -89,7 +108,7 @@ Add the conection to RisingWave Database
 Import the Dashboard F1 Race Dashboard.json
 
 <div style="text-align:center;">
-  <img src="/images/dashboard.png" alt="Home Screen">
+  <img src="/images/dashboard2.png" alt="Home Screen">
 </div>
 
 The streaming data pipeline is now fully operational, python script efficiently streams data through the Kafka topic, while the RisingWave streaming database processes and merges data in real-time.
