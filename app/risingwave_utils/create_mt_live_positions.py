@@ -32,7 +32,7 @@ def create_mt_live_positions():
 
         cursor.execute(sql_statement)
         conn.commit()
-        print("SQL statement executed successfully.")
+        print("Materialized View live_positions  created successfully.")
         cursor.close()
         conn.close()
 

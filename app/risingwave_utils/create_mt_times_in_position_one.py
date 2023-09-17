@@ -27,7 +27,7 @@ def create_mt_times_in_position_one():
 
         cursor.execute(sql_statement)
         conn.commit()
-        print("SQL statement executed successfully.")
+        print("Materialized View times_in_position_one  created successfully.")
         cursor.close()
         conn.close()
 

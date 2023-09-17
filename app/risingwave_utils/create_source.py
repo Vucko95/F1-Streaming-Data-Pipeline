@@ -24,7 +24,7 @@ def create_source(source_name):
 
         cursor.execute(sql_statement)
         conn.commit()
-        print("SQL statement executed successfully.")
+        print("Data Source Created successfully.")
         cursor.close()
         conn.close()
 

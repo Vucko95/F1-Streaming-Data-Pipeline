@@ -35,7 +35,7 @@ def create_races_table():
         cursor.execute(insert_data_sql)
 
         conn.commit()
-        print("SQL statement executed successfully.")
+        print("Table races created sucessfully , base data added")
         cursor.close()
         conn.close()
 

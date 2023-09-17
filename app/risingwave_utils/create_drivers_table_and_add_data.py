@@ -5,7 +5,6 @@ def create_drivers_table_and_add_data():
         conn = psycopg2.connect(host="localhost", port=4566, user="root", dbname="dev")
         cursor = conn.cursor()
 
-        # Create the "drivers" table if it doesn't exist
         create_table_sql = """
         CREATE TABLE IF NOT EXISTS drivers (
             driverId INT,
@@ -47,7 +46,7 @@ def create_drivers_table_and_add_data():
         cursor.execute(insert_data_sql)
 
         conn.commit()
-        print("SQL statements executed successfully.")
+        print("Drivers Table Created Successfully, base data added")
         cursor.close()
         conn.close()
 
