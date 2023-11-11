@@ -59,6 +59,9 @@ async def process_telemetry_packet(data):
             tyre_damage_left_top = packet.carStatusData[19].tyresWear[2]
             tyre_damage_right_top = packet.carStatusData[19].tyresWear[3]
             ersStoreEnergy = packet.carStatusData[19].ersStoreEnergy
+            frontLeftWingDamage = packet.carStatusData[19].frontLeftWingDamage
+            frontRightWingDamage = packet.carStatusData[19].frontRightWingDamage
+            rearWingDamage = packet.carStatusData[19].rearWingDamage
             max_ers_energy = 4000000.0
             battery_percentage = round((ersStoreEnergy / max_ers_energy) * 100, 1)
             # print(f"Battery Percentage: {battery_percentage}%")
@@ -70,11 +73,18 @@ async def process_telemetry_packet(data):
                     "tyre_damage_left_top": tyre_damage_left_top, 
                     "tyre_damage_right_top": tyre_damage_right_top, 
                     "battery_percentage": battery_percentage, 
+                    "frontLeftWingDamage": frontLeftWingDamage, 
+                    "frontRightWingDamage": frontRightWingDamage, 
+                    "rearWingDamage": rearWingDamage, 
                 }
             }
             print(car_status_data)
 
             await publish_messages_to_kafka_socket(producer, topic_name, car_status_data)  
+        elif packet_id == PacketID.LAP_DATA:
+            # driver_car_status_all = packet.carStatusData[19]
+            print(packet)
+            print(packet)
 
     except Exception as e:
         print(f"Error processing telemetry packet: {e}")
