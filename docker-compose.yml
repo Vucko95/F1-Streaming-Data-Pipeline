@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
@@ -31,17 +31,44 @@ services:
     environment:
       DYNAMIC_CONFIG_ENABLED: 'true'
 
-  risingwave:
-    # image: risingwavelabs/risingwave:latest
-    image: risingwave-local-psql
-    ports:
-      - 4566:4566
-      - 5691:5691
+  # risingwave:
+  #   image: risingwavelabs/risingwave:latest
+  #   ports:
+  #     - 4566:4566
+  #     - 5691:5691
 
+  # telegraf:
+  #   image: telegraf:latest
+  #   container_name: telegraf
+  #   restart: always
+  #   volumes:
+  #   - ./telegraf2.conf:/etc/telegraf/telegraf.conf:ro
+  #   ports:
+  #   - '8125:8125'
+
+
+    
   grafana:
     image: grafana/grafana:latest
+    
     ports:
       - 3000:3000
+    volumes:
+      - "./grafana.ini:/etc/grafana/grafana.ini"
     environment:
       GF_SECURITY_ADMIN_USER: admin
-      GF_SECURITY_ADMIN_PASSWORD: adminpassword  
+      GF_SECURITY_ADMIN_PASSWORD: adminpassword
+    networks:
+      - mynetwork
+  # python_app:
+  #   build: ./app_test
+  #   networks:
+  #     - mynetwork
+  #   ports:
+  #     - "8777:8777"
+  #   volumes:
+  #     - ./app_test:/app 
+networks:
+  mynetwork:
+  # $.result.data
+  # raceData
