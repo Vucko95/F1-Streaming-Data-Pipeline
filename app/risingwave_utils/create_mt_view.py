@@ -18,7 +18,7 @@ def create_materialized_view(view_name, source_name):
 
         cursor.execute(sql_statement)
         conn.commit()
-        print("Materialized View created   f1_lap_times   successfully ")
+        print("Materialized View created   f1_stream_materialized   successfully ")
         cursor.close()
         conn.close()
 

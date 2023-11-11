@@ -7,20 +7,12 @@ import json, time,random , string
 from kafka import KafkaProducer
 import asyncio
 from kafka_utils.create_topics import create_kafka_topic
-from risingwave_utils.create_source import create_source
-from risingwave_utils.create_races_table import create_races_table
-from risingwave_utils.create_drivers_table_and_add_data import create_drivers_table_and_add_data
-from risingwave_utils.create_mt_view import create_materialized_view
-from risingwave_utils.create_mt_live_positions import create_mt_live_positions
-from risingwave_utils.create_mt_times_in_position_one import create_mt_times_in_position_one
 
 
 from kafka_utils.producer import initialize_kafka_producer,publish_messages_to_kafka,read_json_file,publish_messages_to_kafka_socket
 
-# Set up Kafka producer
 topic_name = "F1Topic"
 kafka_server = 'localhost:29092'
-# producer = KafkaProducer(bootstrap_servers=kafka_server)
 producer = initialize_kafka_producer(kafka_server)
 
 async def process_telemetry_packet(data):
@@ -103,14 +95,11 @@ if __name__ == "__main__":
 
     try:
         create_kafka_topic(topic_name)
-
-        # loop.run_in_executor(None, producer.bootstrap_connected)
         loop.create_task(receive_and_stream_telemetry(UDP_IP, UDP_PORT))
         loop.run_forever()
 
     except KeyboardInterrupt:
         pass
     finally:
-        # Close Kafka producer
         producer.close()
         loop.close()

@@ -1,0 +1,104 @@
+[
+  {
+    "speed": 148,
+    "throttle": 0.0,
+    "brake": 64.0,
+    "session_time": 23.027355194091797
+  },
+  {
+    "speed": 147,
+    "throttle": 0.0,
+    "brake": 64.0,
+    "session_time": 23.03192901611328
+  },
+  {
+    "speed": 143,
+    "throttle": 0.0,
+    "brake": 64.0,
+    "session_time": 23.07962417602539
+  },
+  {
+    "speed": 139,
+    "throttle": 0.0,
+    "brake": 64.0,
+    "session_time": 23.132795333862305
+  },
+  {
+    "speed": 136,
+    "throttle": 0.0,
+    "brake": 0.0,
+    "session_time": 23.181663513183594
+  },
+  {
+    "speed": 136,
+    "throttle": 0.0,
+    "brake": 0.0,
+    "session_time": 23.235750198364258
+  },
+  {
+    "speed": 136,
+    "throttle": 0.0,
+    "brake": 0.0,
+    "session_time": 23.28628158569336
+  },
+  {
+    "speed": 135,
+    "throttle": 0.0,
+    "brake": 0.0,
+    "session_time": 23.33871078491211
+  },
+  {
+    "speed": 134,
+    "throttle": 0.0,
+    "brake": 0.0,
+    "session_time": 23.390775680541992
+  },
+  {
+    "speed": 133,
+    "throttle": 0.0,
+    "brake": 0.0,
+    "session_time": 23.441150665283203
+  },
+  {
+    "speed": 132,
+    "throttle": 0.0,
+    "brake": 0.0,
+    "session_time": 23.49713134765625
+  },
+  {
+    "speed": 131,
+    "throttle": 0.0,
+    "brake": 0.0,
+    "session_time": 23.542165756225586
+  },
+  {
+    "speed": 131,
+    "throttle": 0.0,
+    "brake": 0.0,
+    "session_time": 23.598817825317383
+  },
+  {
+    "speed": 130,
+    "throttle": 0.0,
+    "brake": 0.0,
+    "session_time": 23.647268295288086
+  },
+  {
+    "speed": 129,
+    "throttle": 0.0,
+    "brake": 0.0,
+    "session_time": 23.70401954650879
+  },
+  {
+    "speed": 128,
+    "throttle": 0.0,
+    "brake": 0.0,
+    "session_time": 23.750041961669922
+  },
+  {
+    "speed": 127,
+    "throttle": 0.0,
+    "brake": 0.0,
+    "session_time": 23.80535888671875
+  }
+]
