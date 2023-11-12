@@ -1,10 +1,9 @@
 from kafka.admin import KafkaAdminClient, NewTopic
+from .settings import *
 
 def create_topic(topic_name):
     try:
-        kafka_server = 'localhost:29092' 
         admin_client = KafkaAdminClient(bootstrap_servers=kafka_server)
-
         topic_config = {
             "cleanup.policy": "compact",
             "compression.type": "lz4",
@@ -12,7 +11,6 @@ def create_topic(topic_name):
         }
 
         topic_metadata = admin_client.list_topics()
-
         topic_names = topic_metadata
         topic_exists = any(topic_name == topic for topic in topic_names)
 

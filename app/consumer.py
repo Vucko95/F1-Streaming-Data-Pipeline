@@ -2,6 +2,7 @@ import asyncio
 import websockets
 import json
 from aiokafka import AIOKafkaConsumer
+from kafka_utils.settings import * 
 
 async def forward_messages_to_websockets(consumer, websocket):
     try:
@@ -16,8 +17,6 @@ async def forward_messages_to_websockets(consumer, websocket):
 async def serve_websocket(websocket, path):
     print(f"Accepted connection from {websocket.remote_address}")
 
-    kafka_server = 'localhost:29092'
-    topic_name = 'F1Topic5'
 
     consumer = AIOKafkaConsumer(
         topic_name,
@@ -31,7 +30,7 @@ async def serve_websocket(websocket, path):
 
     await forward_messages_to_websockets(consumer, websocket)
 
-    await consumer.stop()  # Stop the consumer when the WebSocket is closed
+    await consumer.stop()
 
 if __name__ == "__main__":
     socket_host = '0.0.0.0'
