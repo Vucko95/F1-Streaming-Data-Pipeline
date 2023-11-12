@@ -43,13 +43,32 @@ async def process_car_status(packet, producer, topic_name):
 async def process_lap_data(packet, producer, topic_name):
     currentLapTime = packet.lapData[19].currentLapTime
     carPosition = packet.lapData[19].carPosition
+    bestLapSector1TimeInMS = packet.lapData[19].bestLapSector1TimeInMS if hasattr(packet.lapData[19], 'bestLapSector1TimeInMS') else 0
+    bestLapSector2TimeInMS = packet.lapData[19].bestLapSector2TimeInMS if hasattr(packet.lapData[19], 'bestLapSector2TimeInMS') else 0
+    bestLapSector3TimeInMS = packet.lapData[19].bestLapSector3TimeInMS if hasattr(packet.lapData[19], 'bestLapSector3TimeInMS') else 0
+    sector1TimeInMS = packet.lapData[19].sector1TimeInMS if hasattr(packet.lapData[19], 'sector1TimeInMS') else 0
+    sector2TimeInMS = packet.lapData[19].sector2TimeInMS if hasattr(packet.lapData[19], 'sector2TimeInMS') else 0
+    sector3TimeInMS = packet.lapData[19].sector3TimeInMS if hasattr(packet.lapData[19], 'sector3TimeInMS') else 0
 
+    bestLapSector1TimeInMS = round(bestLapSector1TimeInMS / 1000.0, 3)
+    bestLapSector2TimeInMS = round(bestLapSector2TimeInMS / 1000.0, 3)
+    bestLapSector3TimeInMS = round(bestLapSector3TimeInMS / 1000.0, 3)
+    sector1TimeInSeconds = round(sector1TimeInMS / 1000.0, 3)
+    sector2TimeInSeconds = round(sector2TimeInMS / 1000.0, 3)
+    sector3TimeInSeconds = round(sector3TimeInMS / 1000.0, 3)
     car_lap_data = {
         "carlapdata": {
             "currentLapTime": currentLapTime, 
             "carPosition": carPosition, 
+            "bestLapSector1TimeInMS": bestLapSector1TimeInMS, 
+            "bestLapSector2TimeInMS": bestLapSector2TimeInMS, 
+            "bestLapSector3TimeInMS": bestLapSector3TimeInMS, 
+            "sector1TimeInSeconds": sector1TimeInSeconds, 
+            "sector2TimeInSeconds": sector2TimeInSeconds, 
+            "sector3TimeInSeconds": sector3TimeInSeconds, 
         }
     }
+    print(car_lap_data)
     await publish_messages_to_kafka_socket(producer, topic_name, car_lap_data)
 
 # Add similar functions for other packet types if needed
