@@ -1,6 +1,6 @@
 from kafka.admin import KafkaAdminClient, NewTopic
 
-def create_kafka_topic_new(topic_name):
+def create_topic(topic_name):
     try:
         kafka_server = 'localhost:29092' 
         admin_client = KafkaAdminClient(bootstrap_servers=kafka_server)

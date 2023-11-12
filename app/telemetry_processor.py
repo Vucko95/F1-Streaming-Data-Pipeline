@@ -70,5 +70,3 @@ async def process_lap_data(packet, producer, topic_name):
     }
     print(car_lap_data)
     await publish_messages_to_kafka_socket(producer, topic_name, car_lap_data)
-
-# Add similar functions for other packet types if needed
