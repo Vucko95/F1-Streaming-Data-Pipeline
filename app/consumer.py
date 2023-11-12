@@ -17,7 +17,7 @@ async def serve_websocket(websocket, path):
     print(f"Accepted connection from {websocket.remote_address}")
 
     kafka_server = 'localhost:29092'
-    topic_name = 'F1Topic'
+    topic_name = 'F1Topic5'
 
     consumer = AIOKafkaConsumer(
         topic_name,

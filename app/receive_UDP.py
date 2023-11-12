@@ -3,9 +3,8 @@
 import socket
 import asyncio
 from f1_2020_telemetry.packets import *
-
 from f1_2020_telemetry.packets import PacketID
-from kafka_utils.create_topics import create_kafka_topic
+from kafka_utils.create_topic import create_kafka_topic_new
 from kafka_utils.producer import initialize_kafka_producer
 from telemetry_processor import (
     process_car_telemetry,
@@ -13,10 +12,10 @@ from telemetry_processor import (
     process_lap_data,
 )
 
-topic_name = "F1Topic"
+topic_name = "F1Topic5"
 kafka_server = 'localhost:29092'
 producer = initialize_kafka_producer(kafka_server)
-
+create_kafka_topic_new(topic_name)
 async def process_telemetry_packet(packet):
     try:
         packet = unpack_udp_packet(packet)
@@ -28,8 +27,8 @@ async def process_telemetry_packet(packet):
             await process_car_status(packet, producer, topic_name)
         elif packet_id == PacketID.LAP_DATA:
             await process_lap_data(packet, producer, topic_name)
-        # elif packet_id == PacketID.LOBBY_INFO:
-        #     pass
+        elif packet_id == PacketID.LOBBY_INFO:
+            pass
         else:
                 pass 
 
@@ -51,7 +50,6 @@ if __name__ == "__main__":
     loop = asyncio.get_event_loop()
 
     try:
-        create_kafka_topic(topic_name)
         loop.create_task(receive_and_stream_telemetry(UDP_IP, UDP_PORT))
         loop.run_forever()
 
