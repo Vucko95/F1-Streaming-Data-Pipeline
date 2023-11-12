@@ -10,7 +10,7 @@ def initialize_kafka_producer(kafka_server):
         key_serializer=lambda k: k.encode('utf-8') if k else None
     )
 
-def publish_messages_to_kafka_socket(producer, topic_name, messages):
+async def publish_messages_to_kafka_socket(producer, topic_name, messages):
     try:
         random_key = ''.join(random.choices(string.ascii_letters + string.digits, k=10))
         producer.send(topic=topic_name, key=random_key, value=messages)

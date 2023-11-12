@@ -1,6 +1,3 @@
-# telemetry_processor.py
-
-from f1_2020_telemetry.packets import PacketID
 from kafka_utils.producer import publish_messages_to_kafka_socket
 
 async def process_car_telemetry(packet, producer, topic_name):
@@ -19,7 +16,7 @@ async def process_car_telemetry(packet, producer, topic_name):
             "tyresInnerTemperature_right_bottom": packet.carTelemetryData[19].tyresInnerTemperature[1], 
         }
     }
-    print(telemetry_entry)
+    # print(telemetry_entry)
     await publish_messages_to_kafka_socket(producer, topic_name, telemetry_entry)
 
 async def process_car_status(packet, producer, topic_name):
@@ -40,7 +37,7 @@ async def process_car_status(packet, producer, topic_name):
             "rearWingDamage": packet.carStatusData[19].rearWingDamage, 
         }
     }
-    print(car_status_data)
+    # print(car_status_data)
     await publish_messages_to_kafka_socket(producer, topic_name, car_status_data)
 
 async def process_lap_data(packet, producer, topic_name):

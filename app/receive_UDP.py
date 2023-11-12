@@ -28,11 +28,13 @@ async def process_telemetry_packet(packet):
             await process_car_status(packet, producer, topic_name)
         elif packet_id == PacketID.LAP_DATA:
             await process_lap_data(packet, producer, topic_name)
-        elif packet_id == PacketID.LOBBY_INFO:
-            pass
+        # elif packet_id == PacketID.LOBBY_INFO:
+        #     pass
+        else:
+                pass 
 
     except Exception as e:
-        print(f"Error processing telemetry packet: {e}")
+        print(f"Error processing UDP packet: {e}")
 
 async def receive_and_stream_telemetry(UDP_IP, UDP_PORT):
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
