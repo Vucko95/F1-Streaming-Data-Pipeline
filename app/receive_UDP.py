@@ -2,7 +2,7 @@ import asyncio, socket
 from f1_2020_telemetry.packets import PacketID, unpack_udp_packet
 from kafka_utils.create_topic import create_topic
 from kafka_utils.producer import initialize_kafka_producer
-from telemetry_processor import (
+from packet_processing import (
     process_car_telemetry,
     process_car_status,
     process_lap_data,
@@ -13,6 +13,8 @@ UDP_IP = "0.0.0.0"
 UDP_PORT = 20777
 topic_name = "F1Topic5"
 kafka_server = 'localhost:29092'
+
+
 producer = initialize_kafka_producer(kafka_server)
 create_topic(topic_name)
 
@@ -47,11 +49,7 @@ async def forward_refined_data_to_topic(packet):
         print(f"Error processing UDP packet: {e}")
 
 if __name__ == "__main__":
-    UDP_IP = "0.0.0.0"
-    UDP_PORT = 20777
-
     loop = asyncio.get_event_loop()
-
     try:
         loop.create_task(receive_game_packets())
         loop.run_forever()
