@@ -3,7 +3,7 @@ from f1_2020_telemetry.packets import PacketID, unpack_udp_packet
 from kafka_utils.create_topic import create_topic
 from kafka_utils.producer import initialize_kafka_producer
 from kafka_utils.settings import * 
-from packet_processing import (
+from packet_utils.packet_processing import (
     process_car_telemetry,
     process_car_status,
     process_lap_data,
