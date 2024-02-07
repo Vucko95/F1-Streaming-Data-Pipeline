@@ -50,6 +50,13 @@ services:
       GF_SECURITY_ADMIN_USER: admin
       GF_SECURITY_ADMIN_PASSWORD: adminpassword
 
-
+  websocket-server3:
+    build:
+      context: .
+      dockerfile: Dockerfile.websockets3 
+    ports:
+      - '3001:3001'  
+    depends_on:
+      - kafka 
 networks:
   mynetwork:
