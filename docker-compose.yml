@@ -50,10 +50,10 @@ services:
       GF_SECURITY_ADMIN_USER: admin
       GF_SECURITY_ADMIN_PASSWORD: adminpassword
 
-  websocket-server3:
+  websocket-server5:
     build:
       context: .
-      dockerfile: Dockerfile.websockets3 
+      dockerfile: Dockerfile.websockets5 
     ports:
       - '3001:3001'  
     depends_on:
