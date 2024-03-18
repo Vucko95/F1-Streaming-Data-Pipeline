@@ -1,0 +1,45 @@
+
+
+{
+  "raceData": {
+    "driver": "Max",
+    "speed": 227,
+    "throttle": 0.0,
+    "brake": 0.0,
+    "engineRPM": 10349,
+    "gear": 6,
+    "drs": 0,
+    "tyresInnerTemperature_left_top": 87,
+    "tyresInnerTemperature_right_top": 87,
+    "tyresInnerTemperature_left_bottom": 87,
+    "tyresInnerTemperature_right_bottom": 87
+  }
+}
+
+{
+    "carstatusData": {
+      "fuel": 9.35,
+      "tyre_damage_left_bottom": 0,
+      "tyre_damage_right_bottom": 0,
+      "tyre_damage_left_top": 0,
+      "tyre_damage_right_top": 0,
+      "battery_percentage": 91.8,
+      "frontLeftWingDamage": 0,
+      "frontRightWingDamage": 0,
+      "rearWingDamage": 0
+    }
+  }
+  
+  {
+    "carlapdata": {
+      "currentLapTime": 7.5228142738342285,
+      "carPosition": 4,
+      "bestLapSector1TimeInMS": 0.0,
+      "bestLapSector2TimeInMS": 0.0,
+      "bestLapSector3TimeInMS": 0.0,
+      "sector1TimeInSeconds": 0.0,
+      "sector2TimeInSeconds": 0.0,
+      "sector3TimeInSeconds": 0.0
+    }
+  }
+  

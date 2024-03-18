@@ -19,6 +19,15 @@ async def publish_messages_to_kafka_socket(producer, topic_name, messages):
         print(f"JSON decoding error: {e}")
 
 
+def publish_messages_to_kafka_socket2(producer, topic_name, messages):
+    try:
+        random_key = ''.join(random.choices(string.ascii_letters + string.digits, k=10))
+        producer.send(topic=topic_name, key=random_key, value=messages)
+        # print(f"Message {messages} ADDED TO TOPIC {topic_name}")
+    except json.JSONDecodeError as e:
+        print(f"JSON decoding error: {e}")
+
+
 
 
 
