@@ -1,7 +1,5 @@
 # consumer_utils.py
 import json
-import websockets
-from aiokafka import AIOKafkaConsumer
 from settings import *
 from kafka import KafkaConsumer
 

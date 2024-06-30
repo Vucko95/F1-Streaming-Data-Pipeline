@@ -1,8 +1,9 @@
 import psycopg2
 
+
 def create_source(source_name):
     try:
-        conn = psycopg2.connect(host="localhost", port=4566,user="root", dbname="dev")
+        conn = psycopg2.connect(host="localhost", port=4566, user="root", dbname="dev")
         cursor = conn.cursor()
 
         sql_statement = f"""
@@ -30,6 +31,7 @@ def create_source(source_name):
     except Exception as e:
         print("Error:", e)
         print("Failed to execute SQL statement.")
+
 
 def create_table(table_name):
     try:

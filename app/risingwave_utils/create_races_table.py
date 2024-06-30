@@ -1,5 +1,6 @@
 import psycopg2
 
+
 def create_races_table():
     try:
         conn = psycopg2.connect(host="localhost", port=4566, user="root", dbname="dev")

@@ -1,13 +1,9 @@
 import psycopg2
 
+
 def create_mt_live_positions():
     try:
-        conn = psycopg2.connect(
-            host="localhost",
-            port=4566,
-            user="root",
-            dbname="dev"
-        )
+        conn = psycopg2.connect(host="localhost", port=4566, user="root", dbname="dev")
         cursor = conn.cursor()
 
         view_name = "live_positions"

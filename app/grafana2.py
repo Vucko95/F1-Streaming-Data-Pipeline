@@ -3,6 +3,7 @@ import websockets
 from kafka_utils.settings import *
 from kafka_utils.consumer import forward_messages_to_websockets, setup_kafka_consumer
 
+
 async def start_websocket_server(websocket, path):
     print(f"Accepted connection from {websocket.remote_address}")
 
@@ -13,8 +14,9 @@ async def start_websocket_server(websocket, path):
     finally:
         await kafka_consumer.stop()
 
+
 if __name__ == "__main__":
-    socket_host = '0.0.0.0'
+    socket_host = "0.0.0.0"
     socket_port = 8777
 
     server = websockets.serve(start_websocket_server, socket_host, socket_port)

@@ -1,13 +1,9 @@
 import psycopg2
 
+
 def create_materialized_view(view_name, source_name):
     try:
-        conn = psycopg2.connect(
-            host="localhost",
-            port=4566,
-            user="root",
-            dbname="dev"
-        )
+        conn = psycopg2.connect(host="localhost", port=4566, user="root", dbname="dev")
         cursor = conn.cursor()
 
         sql_statement = f"""

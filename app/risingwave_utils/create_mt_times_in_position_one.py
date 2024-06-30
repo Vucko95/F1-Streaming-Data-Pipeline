@@ -1,13 +1,9 @@
 import psycopg2
 
+
 def create_mt_times_in_position_one():
     try:
-        conn = psycopg2.connect(
-            host="localhost",
-            port=4566,
-            user="root",
-            dbname="dev"
-        )
+        conn = psycopg2.connect(host="localhost", port=4566, user="root", dbname="dev")
         cursor = conn.cursor()
 
         view_name = "times_in_position_one"
