@@ -33,24 +33,14 @@ class RaceDataGenerator:
     def generate_and_publish_data(self, num_iterations=33, initial_speed=113):
         for _ in range(num_iterations):
             initial_speed += 5
+
             race_data = self.generate_race_data(
                 "STER", initial_speed, 0.0, 0.0, 10349, 6, 0, 87
             )
-            print(f"sent {initial_speed}")
             publish_messages_to_kafka_socket2(self.producer, self.topic_name, race_data)
             time.sleep(0.04)
-            # time.sleep(2)
-
-    # def generate_and_publish_data(self, num_iterations=10):
-    #     for _ in range(num_iterations):
-    #         race_data = self.generate_race_data("MISTER", 227, 0.0, 0.0, 10349, 6, 0, 87)
-    #         publish_messages_to_kafka_socket2(self.producer, self.topic_name, race_data)
-    #         time.sleep(0.3)
 
 
 create_topic(topic_name)
 data_generator = RaceDataGenerator(kafka_server, topic_name)
 data_generator.generate_and_publish_data()
-
-# setup_kafka_consumer()
-# print('test')
