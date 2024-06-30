@@ -1,3 +1,4 @@
 streaming_f1_venv
 *__pycache__
 F1DATAFILES
+.F1_environment
