@@ -2,6 +2,13 @@ from kafka_utils.producer import publish_messages_to_kafka_socket
 
 
 async def process_car_telemetry(packet, producer, topic_name):
+    # CAN BE DONE EASIER DEFINING 19 BEFORE
+    #     car_data = packet.carTelemetryData[19]  # Accessing the telemetry data for the 20th car (index 19)
+    
+    # telemetry_entry = {
+    #     "raceData": {
+    #         "driver": "Max",
+    #         "speed": car_data.speed,
     telemetry_entry = {
         "raceData": {
             "driver": "Max",
