@@ -118,3 +118,10 @@ Import the Dashboard F1 Race Dashboard.json
 </div>
 
 The streaming data pipeline is now fully operational, python script efficiently streams data through the Kafka topic, while the RisingWave streaming database processes and merges data in real-time.
+
+
+Complete Data Flow Architecture:
+Real-Time Data:
+Game Data → Kafka → Flink or Kafka Streams → Grafana (via WebSocket for real-time metrics).
+Long-Term Data:
+Game Data → Kafka → Kafka Connect / NiFi → PostgreSQL → Superset (for long-term visualization and analysis).
