@@ -9,18 +9,12 @@ _This project is designed to collect, process, and visualize telemetry data from
 _All F1 Simulation racing series can export race telemetry data in form of UDP Packets. General specification where followed from [***F1 Official UDP Packets***](https://answers.ea.com/t5/General-Discussion/F1-24-UDP-Specification/m-p/13745220/thread-id/2650/highlight/true)_
 
 ## Arhitecture Overview
-Project leverages a set of individual services to collect, process, and visualize Formula 1 race telemetry data. The telemetry data is divided into two key categories:
+The project integrates multiple services to collect, process, and visualize telemetry data from Formula 1 races. This data is categorized into two main types:
 
-1. ***Real-Time Data
-Displayed on Grafana:*** This data is processed and visualized in real-time, allowing for immediate insights into race telemetry metrics, such as car speed, lap times, and driver positions.
-2. ***Persistent Data
-Stored in PostgreSQL:*** This data represents historical telemetry metrics collected during races. It is stored for long-term analysis and can be queried or visualized later using Apache Superset.
+***Real-Time Data*** : Telemetry data such as car speed, lap times, fuel levels, and battery status is processed and visualized in real-time.
 
+ A central Python application captures telemetry packets from the game, listening on `localhost:20777`. Key data fragments are immediately forwarded to a WebSocket service, where they are displayed in Grafana, providing instant insights during the race.
 
-All telemetry packets from the game are captured by a central Python application listening on `localhost:20777`.
+***Persistent Data (Stored in PostgreSQL)***: Telemetry data is directed to Apache NiFi, which routes the packets to specific Kafka topics. Spark processes this data and relays it to ***PostgreSQL*** for long-term storage. 
 
-Immediate Real-Time Data: Data fragments such as car speed, fuel levels, and battery status are forwarded directly to a WebSocket service, where they are instantly displayed in Grafana, providing real-time updates.
-
-Processed Telemetry Data: Other telemetry packets are sent to Apache NiFi, which routes them to designated ***Kafka topics***. From Kafka, the data is picked up by Spark for processing and then relayed to ***PostgreSQL*** for long-term storage and analysis.
-
-Additionally, some telemetry packets, specifically those tied to the current driver's session, are stored directly in ***PostgreSQL*** to capture session-specific details.
+Additionally, some telemetry packets, specifically those tied to the current driver's session, are stored directly in PostgreSQL to capture session-specific details.
