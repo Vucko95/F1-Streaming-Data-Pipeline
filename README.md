@@ -1,6 +1,6 @@
 # Formula 1 Real-Time Data Streaming and Visualization
 <div style="text-align:center;">
-  <img src="/images/cover2.png" alt="Home Screen"  style="border-radius: 20px; height: 80%;">
+  <img src="/images/cover2.png" alt="Home Screen"  style="border-radius: 20px; height: 50%;">
 </div>
 
 <br>
@@ -125,3 +125,11 @@ Real-Time Data:
 Game Data → Kafka → Flink or Kafka Streams → Grafana (via WebSocket for real-time metrics).
 Long-Term Data:
 Game Data → Kafka → Kafka Connect / NiFi → PostgreSQL → Superset (for long-term visualization and analysis).
+
+# TODO: Checking the psql
+```bash
+docker exec -it postgres bash
+psql -U superset -d superset_db
+
+
+```
