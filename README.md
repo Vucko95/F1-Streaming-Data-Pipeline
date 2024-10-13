@@ -1,19 +1,11 @@
-# Formula 1 Real-Time Data Streaming and Visualization
+# _Formula 1 Data Streaming - Analytics_
+
+
+_This project is designed to collect, process, and visualize telemetry data from Formula 1 races using various technologies. The incoming UDP packets from the race are categorized into two distinct data streams: Persistent Data and Real-Time Data._ 
 
 
 <div style="text-align:center;">
-  <img src="./images/dash.jpg" alt="Home Screen">
-</div>
-This project showcases the creation of a real-time data streaming pipeline for Formula 1 race data using a stack of widely used technologies. Dive into the world of streaming data, Python, Kafka, RisingWave, and Grafana to visualize live Formula 1 race information.
-
-
-
-
-
-
-
-<div style="text-align:center;">
-  <img src="/images/Topology.png" alt="Home Screen">
+  <img src="./images/dashv1.jpg" alt="Home Screen">
 </div>
 
 
@@ -51,7 +43,7 @@ The docker-compose up -d command initializes and starts all the specified servic
 
 Connect to a **KAFKA-UI** at *localhost:8080*, and set **Cluster name**, and **Kafka Service** + **Port** then Click Submit
 <div style="text-align:center;">
-  <img src="/images/kafka-ui.png" alt="Home Screen">
+  <img src="./images/kafka-ui.png" alt="Home Screen">
 </div>
 
 
@@ -65,19 +57,19 @@ cd /app
 python main.py
 ```
 <div style="text-align:center;">
-  <img src="/images/pythonsc.png" alt="Home Screen">
+  <img src="./images/pythonsc.png" alt="Home Screen">
 </div>
 <br>
 We can see that messages are arriving inside the Kafka-UI
 
 <div style="text-align:center;">
-  <img src="/images/kafka-topic.png" alt="Home Screen">
+  <img src="./images/kafka-topic.png" alt="Home Screen">
 </div>
 
 <br>
 We can manually check the data inside the database within the container
 <div style="text-align:center;">
-  <img src="/images/docker_ps.png" alt="Home Screen">
+  <img src="./images/docker_ps.png" alt="Home Screen">
 </div>
 <br>
 
@@ -86,7 +78,7 @@ docker exec -it *CONTAINER ID* psql -h localhost -p 4566 -d dev -U root
 ```
 
 <div style="text-align:center;">
-  <img src="/images/table.png" alt="Home Screen">
+  <img src="./images/table.png" alt="Home Screen">
 </div>
 
 
@@ -97,7 +89,7 @@ Navigation inside Grafana: Home -> Connections -> Add new connection -> PostgreS
 
 Add the conection to RisingWave Database
 <div style="text-align:center;">
-  <img src="/images/grafana_setup.png" alt="Home Screen">
+  <img src="./images/grafana_setup.png" alt="Home Screen">
 </div>
 
 <br>
@@ -107,7 +99,7 @@ Import the Dashboard F1 Race Dashboard.json
 
 <div style="text-align:center;">
     <p align="center">
-  <img src="/images/dashboard2.png" alt="Home Screen">
+  <img src="./images/dashboard2.png" alt="Home Screen">
     </p>
 </div>
 
