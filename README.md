@@ -1,15 +1,9 @@
 # Formula 1 Real-Time Data Streaming and Visualization
+
+
 <div style="text-align:center;">
-  <img src="/images/cover2.png" alt="Home Screen"  style="border-radius: 20px; height: 50%;">
+  <img src="./images/dash.jpg" alt="Home Screen">
 </div>
-
-<br>
-<p align="left">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=python,kafka,postgres,docker,grafana" />
-  </a>
-</p>
-
 This project showcases the creation of a real-time data streaming pipeline for Formula 1 race data using a stack of widely used technologies. Dive into the world of streaming data, Python, Kafka, RisingWave, and Grafana to visualize live Formula 1 race information.
 
 
