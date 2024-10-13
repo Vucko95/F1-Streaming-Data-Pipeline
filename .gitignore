@@ -5,3 +5,4 @@ F1_environment
 local
 other/*
 .vscode
+spark-config/

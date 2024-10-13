@@ -13,4 +13,9 @@ superset set_database_uri --database_name PostgreSQL --uri "$SUPERSET_DATABASE_U
 
 
 # Starting server
-/bin/sh -c /usr/bin/run-server.sh
+/bin/sh -c /usr/bin/run-server.sh &
+
+# Wait for Superset to be healthy
+./wait-for-superset.sh
+
+tail -f /dev/null
