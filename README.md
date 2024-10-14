@@ -14,7 +14,15 @@ The project integrates multiple services to collect, process, and visualize tele
 ***Real-Time Data*** : Telemetry data such as car speed, lap times, fuel levels, and battery status is processed and visualized in real-time.
 
  A central Python application captures telemetry packets from the game, listening on `localhost:20777`. Key data fragments are immediately forwarded to a WebSocket service, where they are displayed in Grafana, providing instant insights during the race.
+<div style="text-align:center;">
+  <img src="./images/Animation.gif" alt="Home Screen">
+</div>
 
 ***Persistent Data (Stored in PostgreSQL)***: Telemetry data is directed to Apache NiFi, which routes the packets to specific Kafka topics. Spark processes this data and relays it to ***PostgreSQL*** for long-term storage. 
 
 Additionally, some telemetry packets, specifically those tied to the current driver's session, are stored directly in PostgreSQL to capture session-specific details.
+
+
+<!-- TODO: CONFIGURE AND DISPLAY PRESISTENT DATA PART WITH REAMDE PICTURES AS WELL -->
+<!-- WHOLE DATA FLOW OF WHOLE PERSISTENT DATA DOCUEMNTED -->
+<!-- TODO: DOCUMENT PRE CREATION OF SUPERSETS -->
