@@ -23,6 +23,10 @@ The project integrates multiple services to collect, process, and visualize tele
 Additionally, some telemetry packets, specifically those tied to the current driver's session, are stored directly in PostgreSQL to capture session-specific details.
 
 
+<!-- TODO: Create SMART PYTHON CONTROLLER WHICH WILL FED THE DATABASE -->
+<!-- TODO: CREATE DATABASE TABLES BASED ON GRAPHS REQUIRED IN SUPERSET -->
+
+
 <!-- TODO: CONFIGURE AND DISPLAY PRESISTENT DATA PART WITH REAMDE PICTURES AS WELL -->
 <!-- WHOLE DATA FLOW OF WHOLE PERSISTENT DATA DOCUEMNTED -->
 <!-- TODO: DOCUMENT PRE CREATION OF SUPERSETS -->
